@@ -1,0 +1,76 @@
+<div id="box_header">
+  <div id="box_header_sub1">
+    <div id="box_header_sub1_sub1">
+      <div class="clearBoth"></div>
+   		<div xmlns="" class="columnSpace" id="elem-FrontSpecifies_show01-1474455793327" name="说明页">
+      	<div id="FrontSpecifies_show01-1474455793327" class="FrontSpecifies_show01-d1_c1">
+      		<p><a href="<%= root_path %>"><img alt="" src="/logo.png" /></a></p>
+					<style type="text/css">
+						#sj{ background: #050505 none repeat scroll 0 0;
+						    border-radius: 10px;
+						    color: #ceaa69;
+						    font-size: 14px;
+						    height: 22px;
+						    padding: 20px;
+						    position: fixed;
+						    right: 10px;
+								top:0px;}
+					</style>
+					<div id="sj">
+						<div id="date"><script>getdates();</script></div>
+						<script language="javascript">
+							function getdates()
+							{
+							var w_array=new Array("星期天","星期一","星期二","星期三","星期四","星期五","星期六");
+							var d=new Date();
+							var year=d.getFullYear();
+							var month=d.getMonth()+1;
+							var day=d.getDate();
+							var week=d.getDay();
+							var h=d.getHours();
+							var mins=d.getMinutes();
+							var s=d.getSeconds();
+							if(month<10) month="0" + month
+							if(day<10) month="0" + day
+							if(h<10) h="0" + h
+							if(mins<10) mins="0" + mins
+							if(s<10) s="0" + s
+							var shows=" <span>" + year + "-" + month + "-" + day + " " + h + ":" + mins +  ":" + s + " " + w_array[week] + "</span>";
+							document.getElementById("date").innerHTML=shows;
+							setTimeout("getdates()",1000);
+							}
+							getdates();
+						</script>
+	        </div>
+	      </div>
+      </div>
+		</div>
+
+
+    <div id="box_header_sub1_sub2">
+      <div xmlns="" class="columnSpace" id="elem-FrontColumns_navigation01-1471834890076" name="栏目导航"> 
+        <script type="text/javascript">
+				//<![CDATA[
+					FrontColumns_navigation01['FrontColumns_navigation01-1471834890076_init'] = function (){
+						FrontColumns_navigation01.d2ddlevelsmenu.init("d2menubar_FrontColumns_navigation01-1471834890076", "topbar");
+					}
+					$(FrontColumns_navigation01['FrontColumns_navigation01-1471834890076_init']);
+					// ]]>
+				</script>
+				<div id="FrontColumns_navigation01-1471834890076" class="FrontColumns_navigation01-d2_c1">
+					<div id="d2menubar_FrontColumns_navigation01-1471834890076" class="mattblackmenu">
+						<ul class="nav-first">
+<!-- 							<li class="first"><a href="<%= root_path %>" title="网站首页">网站首页</a></li>
+ -->							<% @categories.each do |category| %>
+								<li ><a href="#"><%= category.title %></li>
+							<% end %>																				
+							<li class="last"></li>	
+						</ul>
+					</div>
+				</div> 
+			</div>
+  	</div>
+  	<div class="clearBoth"></div>
+  </div>
+</div>
+

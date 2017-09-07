@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>华远卫士安保集团</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= yield :javascripts %>
+  </head>
+
+  <body>
+	  <%= render 'layouts/menu' %>
+    <div class="container">
+      <% unless flash[:notice].blank? %>
+        <div class="alert alert-info"><%= flash[:notice] %></div>
+      <% end -%>
+    <%= yield %>
+  </body>
+</html>

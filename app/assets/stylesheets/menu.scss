@@ -1,0 +1,48 @@
+#box_header {
+    background: #050505;
+    float: none;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+}
+#box_header_sub1 {
+    float: none;
+    margin: 0 auto;
+    width: 1200px;
+}
+
+#box_header_sub1_sub2 {
+    float: right;
+    width: 930px;
+}
+
+
+
+.FrontColumns_navigation01-d2_c1 .mattblackmenu ul {
+    margin: 0;
+    padding: 0;
+    font: bold 12px Verdana;
+    list-style-type: none;
+    overflow: hidden;
+    width: 100%;
+}
+
+
+.FrontColumns_navigation01-d2_c1 ul.nav-first li {
+    float: left;
+    white-space: nowrap;
+    position: relative;
+}
+
+.FrontColumns_navigation01-d2_c1 ul.nav-first li a {
+    float: left;
+    height: 101px;
+    line-height: 101px;
+    font-weight: 200;
+    padding: 0 14px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    background: 0;
+}
