@@ -1,2 +1,12 @@
 <h1>Admin::Articles#index</h1>
-<p>Find me in app/views/admin/articles/index.html.erb</p>
+<p><%= link_to "新建文章", new_admin_article_path %></p>
+
+
+<% @articles.each do |f| %>
+<h1><%= f.title %></h1>
+
+<%= link_to '编辑', edit_admin_article_path(f) %>
+<%= f.category.title %>
+<%= f.status %>
+<%= f.content.html_safe %>
+<% end %>

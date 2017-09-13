@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170905075314) do
+ActiveRecord::Schema.define(version: 20170913031846) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",                                     null: false
@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(version: 20170905075314) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
-    t.integer  "weight"
     t.string   "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "position"
     t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
     t.index ["title"], name: "index_categories_on_title", using: :btree
   end

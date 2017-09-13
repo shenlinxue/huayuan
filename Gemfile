@@ -43,6 +43,7 @@ gem 'will_paginate'
 #富文本编辑器
 gem 'rails_kindeditor'
 gem 'ancestry'
+gem 'acts_as_list'
 
 
 

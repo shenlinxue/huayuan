@@ -11,11 +11,22 @@
   </head>
 
   <body>
-	  <%= render 'admin/layouts/menu' %>
     <div class="container">
+      <%= render 'admin/layouts/menu' %>
+    
       <% unless flash[:notice].blank? %>
         <div class="alert alert-info"><%= flash[:notice] %></div>
-      <% end -%>
-    <%= yield %>
+      <% end %>
+      
+      <div class="yielder">
+        <%= yield %>
+      </div>
+
+      <style type="text/css">
+        .yielder {
+            margin-top: 0px;
+          }
+      </style>
+    </div>
   </body>
 </html>

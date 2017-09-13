@@ -16,6 +16,14 @@
       <% unless flash[:notice].blank? %>
         <div class="alert alert-info"><%= flash[:notice] %></div>
       <% end -%>
-    <%= yield %>
+      <div class="yielder">
+        <%= yield %>
+      </div>
+
+      <style type="text/css">
+        .yielder {
+            margin-top: 180px;
+          }
+      </style>
   </body>
 </html>
