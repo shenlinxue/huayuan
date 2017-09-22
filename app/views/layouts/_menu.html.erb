@@ -1,11 +1,60 @@
-<div id="box_header">
-  <div id="box_header_sub1">
-    <div id="box_header_sub1_sub1">
-      <div class="clearBoth"></div>
-   		<div xmlns="" class="columnSpace" id="elem-FrontSpecifies_show01-1474455793327" name="说明页">
-      	<div id="FrontSpecifies_show01-1474455793327" class="FrontSpecifies_show01-d1_c1">
-      		<p><a href="<%= root_path %>"><img alt="" src="/logo.png" /></a></p>
-					<style type="text/css">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+		  <div class="navbar-brand"> 
+		  	<img src="/logo.png" class="img-responsive">
+		  </div>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      
+      <ul class="nav navbar-nav">
+      	<% @categories.each do |category| %>
+					
+				<li class="dropdown ">
+					  <a href="/<%= category.url %>" >
+					    <%= category.title %>
+				    </a>
+						<% if category.has_children? %>
+						  <ul class="dropdown-menu" aria-labelledby="dLabel">
+							  <% category.children.each do |t| %>
+							  	<li><a href="/<%= category.url %>/<%= t.url %>"></a><%= t.title %></li>
+							  <% end %>
+						  </ul>
+					  <% end %>
+				<% end %>		
+				</li>		
+<!-- 
+				<% @categories.each do |category| %>
+					<li><a href="/<%= category.url %>"><%= category.title %></a></li>
+				<% end %>	
+ -->
+
+ 			</ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <style type="text/css">
 						#sj{ background: #050505 none repeat scroll 0 0;
 						    border-radius: 10px;
 						    color: #ceaa69;
@@ -41,36 +90,6 @@
 							}
 							getdates();
 						</script>
-	        </div>
-	      </div>
-      </div>
-		</div>
+	        </div> -->
 
-
-    <div id="box_header_sub1_sub2">
-      <div xmlns="" class="columnSpace" id="elem-FrontColumns_navigation01-1471834890076" name="栏目导航"> 
-        <script type="text/javascript">
-				//<![CDATA[
-					FrontColumns_navigation01['FrontColumns_navigation01-1471834890076_init'] = function (){
-						FrontColumns_navigation01.d2ddlevelsmenu.init("d2menubar_FrontColumns_navigation01-1471834890076", "topbar");
-					}
-					$(FrontColumns_navigation01['FrontColumns_navigation01-1471834890076_init']);
-					// ]]>
-				</script>
-				<div id="FrontColumns_navigation01-1471834890076" class="FrontColumns_navigation01-d2_c1">
-					<div id="d2menubar_FrontColumns_navigation01-1471834890076" class="mattblackmenu">
-						<ul class="nav-first">
-<!-- 							<li class="first"><a href="<%= root_path %>" title="网站首页">网站首页</a></li>
- -->							<% @categories.each do |category| %>
-								<li ><a href="#"><%= category.title %></li>
-							<% end %>																				
-							<li class="last"></li>	
-						</ul>
-					</div>
-				</div> 
-			</div>
-  	</div>
-  	<div class="clearBoth"></div>
-  </div>
-</div>
-
+ 

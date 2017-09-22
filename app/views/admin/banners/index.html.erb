@@ -1,0 +1,85 @@
+
+<div class="pull-right">
+  <%= link_to "添加图片", new_admin_banner_path, class: "btn btn-primary" %>
+</div>
+<h3>当前使用图片</h3>
+<div>
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>名称</th>
+      <th>图片</th>
+      <th>position</th>
+      <th>状态</th>
+      <th></th>
+      <th></th> 
+    </tr>
+
+    <% @banners.each do |banner| %>
+      <tr>
+        <td><%= banner.id %></td>
+        <td><%= banner.title %></td>
+        <td><%= image_tag banner.avatar.url(:small) %><br>
+          <%= banner.url %>
+        </td>
+        <td><%= banner.position %></td>
+        <td><%= banner.status ? "显示" : "隐藏" %></td>
+        <td align="right">
+          <%= link_to (banner.status ? "设为隐藏" : "设为显示"), set_show_admin_banner_path(banner) %>
+          <%= link_to "编辑", edit_admin_banner_path(banner) %> 
+          <%= link_to "删除", admin_banner_path(banner), method: :delete, 'data-confirm': "确认删除吗?" %>
+
+        </td>
+        <td>
+          <%= link_to "上移", set_order_admin_banner_path(banner,type: 'pre') %>
+          <%= link_to "下移", set_order_admin_banner_path(banner,type: 'next')  %>
+          <%= link_to "置顶", set_order_admin_banner_path(banner,type: 'first')  %>
+          <%= link_to "置底", set_order_admin_banner_path(banner,type: 'last')  %>
+        </td>
+      </tr>
+    <% end -%>
+  </table>
+
+ 
+</div>
+
+
+<h3>当前隐藏图片</h3>
+<div>
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>名称</th>
+      <th>图片</th>
+      <th>position</th>
+      <th>状态</th>
+      <th></th>
+      <th></th> 
+    </tr>
+
+    <% @hidden_banners.each do |banner| %>
+      <tr>
+        <td><%= banner.id %></td>
+        <td><%= banner.title %></td>
+        <td><%= image_tag banner.avatar.url(:small) %></td>
+        <td><%= banner.position %></td>
+        <td><%= banner.status ? "显示" : "隐藏" %></td>
+        <td align="right">
+          <%= link_to (banner.status ? "设为隐藏" : "设为显示"), set_show_admin_banner_path(banner) %>
+          <%= link_to "编辑", edit_admin_banner_path(banner) %> 
+          <%= link_to "删除", admin_banner_path(banner), method: :delete, 'data-confirm': "确认删除吗?" %>
+
+        </td>
+        <td>
+          <%= link_to "上移", set_order_admin_banner_path(banner,type: 'pre') %>
+          <%= link_to "下移", set_order_admin_banner_path(banner,type: 'next')  %>
+          <%= link_to "置顶", set_order_admin_banner_path(banner,type: 'first')  %>
+          <%= link_to "置底", set_order_admin_banner_path(banner,type: 'last')  %>
+        </td>
+      </tr>
+    <% end -%>
+  </table>
+
+ 
+</div>
+

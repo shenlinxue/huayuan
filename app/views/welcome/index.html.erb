@@ -1,8 +1,39 @@
-<% @articles.each do |f| %>
-<h1><%= f.title %></h1>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <% @banners.each do |t| %>
+      <li data-target="#carousel-example-generic" data-slide-to="<%= t.position-1 %>" class="<%=  t.position == 1 ? "active" : "" %>"></li>
+    <% end %>
+  </ol>
 
-<%= link_to '编辑', edit_admin_article_path(f) %>
-<%= f.category.title %>
-<%= f.status %>
-<%= f.content.html_safe %>
-<% end %>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <% @banners.each do |f| %>
+      <div class="item <%= f.position == 1 ? "active" : "" %>">
+          <a href="<%= f.url %>"><%= image_tag f.avatar.url(:big) %></a>
+        <div class="carousel-caption">
+          <%= f.description %>
+        </div>   
+      </div>
+    <% end %>
+ 
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<!-- 轮播图默认每张停留5s,下面自定义设置成3s -->
+<script type="text/javascript">
+  $('.carousel').carousel({
+  interval: 3000
+})
+</script>
+

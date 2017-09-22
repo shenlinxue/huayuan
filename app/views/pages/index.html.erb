@@ -1,0 +1,17 @@
+<div class="list-group">
+	<% @category.children.each do |t| %>
+	<a href="/<%= @category.url %>/<%= t.url %>" class="list-group-item"><%= t.title -%></a>
+	<% end %>
+</div>
+
+
+
+<div class="list-article">
+	<% @articles.each do |f| %>
+		<h3><%= f.title %></h3>
+		
+		<%= link_to '编辑', edit_admin_article_path(f) %>
+		<%= f.category.title %>
+		<%= f.status %>
+	<% end %>
+</div> 

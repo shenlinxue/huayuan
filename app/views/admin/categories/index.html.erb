@@ -18,6 +18,7 @@
       <th>ID</th>
       <th>名称</th>
       <th>序号</th>
+      <th></th> 
       <th></th>
       <th></th>
     </tr>
@@ -27,6 +28,7 @@
         <td><%= category.id %></td>
         <td><%= category.title %></td>
         <td><%= category.position %></td>
+        <td><%= category.url %></td>
         <td align="right">
           <%= link_to "编辑", edit_admin_category_path(category) %> 
           <%= link_to "删除", admin_category_path(category), method: :delete, 'data-confirm': "确认删除吗?" %>

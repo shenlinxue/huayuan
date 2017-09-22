@@ -1,0 +1,38 @@
+<div>
+  <h1><%= @banner.new_record? ? "新建轮播图" : "修改轮播图 ##{params[:id]}" %></h1>
+</div>
+
+<div class="form-body">
+  <%= form_for @banner, 
+    url: (@banner.new_record? ? admin_banners_path : admin_banner_path(@banner)), 
+    method: (@banner.new_record? ? 'post' : 'put'), 
+    html: { class: 'form-horizontal' } do |f| %>
+
+    <div class="form-group">
+      <label for="title" class="col-sm-2 control-label">名称:*</label>
+      <div class="col-sm-5">
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="title" class="col-sm-2 control-label">图片:*</label>
+      <div class="col-sm-5">
+          <%= f.file_field :avatar %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="title" class="col-sm-2 control-label">网址:*</label>
+      <div class="col-sm-5">
+        <%= f.text_field :url, class: "form-control" %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-8">
+        <%= f.submit (@banner.new_record? ? "新建" : "确定"), class: "btn btn-default" %>
+      </div>
+    </div>
+  <% end -%>
+</div>

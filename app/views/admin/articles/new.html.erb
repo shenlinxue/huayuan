@@ -36,6 +36,9 @@
         <select name="article[category_id]">
           <% @root_categories.each do |category| %>
             <option value="<%= category.id %>" <%= @article.category == category ? 'selected' : '' %>><%= category.title %></option>
+            <% category.children.each do |sub_category| %>
+              <option value="<%= sub_category.id %>" <%= @article.category == sub_category ? 'selected' : '' %>><%= category.title %>--<%= sub_category.title %></option>
+            <% end %>
           <% end -%>
         </select>
       </div>

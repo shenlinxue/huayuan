@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>华远卫士安保集团</title>
+    <link rel="shortcut icon" href="/logo_icon_48.ico" type="image/x-icon"/> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <%= csrf_meta_tags %>
 
@@ -16,14 +17,10 @@
       <% unless flash[:notice].blank? %>
         <div class="alert alert-info"><%= flash[:notice] %></div>
       <% end -%>
-      <div class="yielder">
+      <div class="yield">
         <%= yield %>
       </div>
 
-      <style type="text/css">
-        .yielder {
-            margin-top: 180px;
-          }
-      </style>
+
   </body>
 </html>

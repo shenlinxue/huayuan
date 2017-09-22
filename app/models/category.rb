@@ -1,9 +1,9 @@
 class Category < ApplicationRecord
-  acts_as_list
+  acts_as_list default: :bottom
 
 	has_ancestry orphan_strategy: :destroy
 
-  has_many :products, dependent: :destroy
+  has_many :articles, dependent: :destroy
 
 
 
